@@ -1,0 +1,23 @@
+{
+  "name": "pairing-workspace",
+  "version": "1.0.0",
+  "description": "basic tooling to write and test typescript",
+  "main": "src/index.ts",
+  "author": "mayur",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "test": "jest",
+    "test:dev": "jest --watchAll"
+  },
+  "dependencies": {
+    "jest": "^29.7.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.10",
+    "ts-jest": "^29.1.2"
+  }
+}
