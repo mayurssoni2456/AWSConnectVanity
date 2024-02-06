@@ -1,66 +1,47 @@
-# Plotify Pairing Workspace
-
-This is an empty shell repo with the following node packages pre-installed:
+# AWS Connect Project
+Give a phone number, backend will generate multiple vanify numbers and provide this as an option to the caller.
 
 * typescript
 * jest
-* ts-node
+* AWS - AWS Connect, lambda, dynamodb,etc
+* Terraform - IAC
 
-When preparing for the Pairing exercise, you can clone this repo and use it as your workspace. 
+# In progress
+    1. Infrastructure creation 
+        AWSConnect related infra
+        Lambda
+        DynamoDB
+        IAM Role
+        S3 Bucket
+    
+    2. Application Code
+        Currently, It contains very basic logic to generate vanify Numbers
+            Default Algorithm and Custom Algorithms are implemented (basic just to give the idea)
+        
+        Storing the vanify numbers in dynamodb 
+    
+    3. Basic 1 test case
+    
+    3. Deployment script
+        deploy.sh 
 
-Feel free to add additional packages as you please or create one completely from scratch. 
+    4. running locally
+        local.sh         
 
-The important thing is to have a worskpace that makes you feel most comfortable.
+# other pending task & scope of improvments
+ - Logger, code cleanup, etc.
+ - terraform modularize 
 
-## *NOTE:*  Pairing exercises will not involve html or any ui framework. All code will be executed on the terminal.
+# How to run 
 
-Wish you the best.
+1. Configure AWS credentials and execute sh deploy.sh - This will create the necessary infra on aws cloud        
+2. To run locally sh local.sh    
 
-Plotify .
+# code structure 
+    1. index.ts - Entry point (Router)
+    2. AppyService - This is facade of the application service
+    3. VanifyService - This will hold instance of VanifyAlgo, Repository,etc.
+    4. VanifyRepository - Table Model
+    5. VanifySchema - Table Schema
+    6. VanifyEnity - attributes
 
-
-## requirements 
-
-Game
-Grids 
-    6rows x 7cols
-Players 
-    winner - 4 pieces in any direction / diagonals are allowed 
-Tokens
-    . x o
-
-
-# Entities 
-
-1. Game
-2. Grids 6x7
-3. Players
-4. Tokens
-
-
-# Entities Attributes
-
-1. Game
-        gameName, players, playerTurn,  winner
-2. Grids 6x7
-        rows columns
-3. Player
-        name, token
-4. Token
-        symbol
-
-# Relationsships 
-
-Game -> Board - 1:1
-Game ->  Players  1:m
-Players -> Tokens 1:1
-
-# Winning Strategy
-    4 pieces vertically, diagonal, horizontal
-
-
-# Service
-    Game 
-        1. initiate Game and start game
-        2. makeMove
-        3. displayBoard

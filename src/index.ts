@@ -1,5 +1,8 @@
-import CustomVanityAlgorithm from "./CustomVanityAlgo";
+import AppService from "./AppService";
+
   
-const customVanityAlgorithm = new CustomVanityAlgorithm();
-console.log(customVanityAlgorithm.generateVanity('1234'));
-  
+export const handler = async (event: any) => {
+    // routing logic
+    const appService = new AppService(event);
+    return await appService.generateVanifyNumbers();
+};

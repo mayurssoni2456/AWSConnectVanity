@@ -2,21 +2,33 @@
   "name": "pairing-workspace",
   "version": "1.0.0",
   "description": "basic tooling to write and test typescript",
-  "main": "src/index.ts",
   "author": "mayur",
   "license": "MIT",
+  "main": "dist/index.js",
   "private": true,
   "scripts": {
-    "start": "ts-node ./src/index.ts",
+    "install-deps": "npm install",
+    "build": "tsc",
+    "start": "tsc && ./dist/index.js",
+    "zip": "zip -r awsconnectapp.zip dist/*",
     "test": "jest",
+    "local": "tsc && sam local invoke MyLambdaFunction --event event.json",
+    "deploy": "tsc && npm run copy && sam deploy",
+    "copy": "cp package.json dist/ && npm install",
     "test:dev": "jest --watchAll"
   },
   "dependencies": {
-    "jest": "^29.7.0",
-    "ts-node": "^10.9.1",
+    "@automapper/classes": "^8.8.1",
+    "@automapper/core": "^8.8.1",
+    "@automapper/types": "^6.3.1",
+    "@types/validator": "^13.11.8",
+    "aws-sdk": "^2.1548.0",
+    "dynamoose": "^4.0.0",
+    "jest": "^29.7.0",    
     "typescript": "^5.3.2"
   },
   "devDependencies": {
+    "ts-node": "^10.9.1",
     "@types/jest": "^29.5.10",
     "ts-jest": "^29.1.2"
   }

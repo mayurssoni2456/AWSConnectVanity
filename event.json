@@ -1,0 +1,13 @@
+{
+    "Details": {
+      "ContactData": {
+        "ContactId": "example-contact-id",
+        "CustomerEndpoint": {
+          "Address": "1800-555-1234",
+          "Type": "TELEPHONE_NUMBER"
+        }
+      },
+      "Channel": "VOICE"
+    }
+  }
+  

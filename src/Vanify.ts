@@ -14,29 +14,29 @@ export default abstract class VanityAlgorithm {
         '0': [],
     };
 
-    abstract generateVanity(lastFourDigits: string): string;
+    abstract generateVanity(lastFourDigits: string): string[];
 
-    generateDefaultVanity(phoneNumber: string): string {
+    generateDefaultVanity(phoneNumber: string): string[] {
 
+        console.log("============generateDefaultVanity", phoneNumber);
         const numDigits = phoneNumber.length;
         let vanityNumber = '';
 
         for (let i = 0; i < numDigits; i++) {
-            const char = phoneNumber[i];
-
-            // first 4 digit and hyper ignore
+            const char = phoneNumber[i];            
             if (i < 4 || char === '-') {
                 vanityNumber += char;
             } else {
                 const alphaOptions = VanityAlgorithm.PHONE_ALPHA_MAP[char];
-                if (alphaOptions && alphaOptions.length > 0) {
-                    // Choose the first alphabet option for simplicity
+                if (alphaOptions && alphaOptions.length > 0) {                    
                     vanityNumber += alphaOptions[0];
                 }
             }
         }
 
-        return vanityNumber;
+        console.log("============generateDefaultVanity vanity", vanityNumber);
+
+        return [vanityNumber];
     }
 }
 
